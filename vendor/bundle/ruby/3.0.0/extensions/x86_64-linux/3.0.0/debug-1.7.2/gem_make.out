@@ -1,0 +1,16 @@
+current directory: /home/developer/project/test_tasks/project_conversation_history/vendor/bundle/ruby/3.0.0/gems/debug-1.7.2/ext/debug
+/home/developer/.rvm/rubies/ruby-3.0.0/bin/ruby -I /home/developer/.rvm/rubies/ruby-3.0.0/lib/ruby/3.0.0 -r ./siteconf20230504-701865-v3z653.rb extconf.rb
+creating Makefile
+
+current directory: /home/developer/project/test_tasks/project_conversation_history/vendor/bundle/ruby/3.0.0/gems/debug-1.7.2/ext/debug
+make "DESTDIR=" clean
+
+current directory: /home/developer/project/test_tasks/project_conversation_history/vendor/bundle/ruby/3.0.0/gems/debug-1.7.2/ext/debug
+make "DESTDIR="
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/developer/project/test_tasks/project_conversation_history/vendor/bundle/ruby/3.0.0/gems/debug-1.7.2/ext/debug
+make "DESTDIR=" install
+/usr/bin/install -m 0755 debug.so ./.gem.20230504-701865-67xi63/debug
