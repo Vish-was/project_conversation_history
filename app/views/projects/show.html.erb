@@ -1,0 +1,15 @@
+<h1><%= @project.title %></h1>
+
+<p><%= @project.description %></p>
+
+<h2>Comments</h2>
+<%= render @project.comments %>
+
+<%= form_for @project, url: change_status_project_path(@project), method: :post do |f| %>
+  <div class="form-group">
+    <%= f.label :status %>
+  <%= f.select :status, options_for_select(Project::STATUS_OPTIONS, @project.status) %>
+  </div>
+
+  <%= f.submit "Update Status", class: "btn btn-primary" %>
+<% end %>
