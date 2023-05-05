@@ -1,0 +1,25 @@
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Event</th>
+      <th>Modified by</th>
+      <th>Modified at</th>
+      <th>Change</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @versions.each do |version| %>
+      <tr>
+        <td><%= version.id %></td>
+        <td><%= version.event %></td>
+        <td><%= version.whodunnit %></td>
+        <td><%= version.created_at.strftime('%b %d, %Y at %I:%M:%S %p') %></td>
+        <td><%= show_status_change(version.object) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Back', project_path(@project) %>

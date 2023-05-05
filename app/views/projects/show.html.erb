@@ -1,15 +1,26 @@
-<h1><%= @project.title %></h1>
+<h1>Title: <%= @project.title %></h1>
+<p>Description: <%= @project.description %></p>
+<p>Status: <%= @project.status %></p>
 
-<p><%= @project.description %></p>
+<h2>Update Status</h2>
+<%= form_with(model: @project, url: project_path(@project), method: :patch) do |form| %>
+  <%= form.label :status %>
+  <%= form.select :status, Project::STATUS_OPTIONS %>
+  <%= form.submit 'Update' %>
+<% end %>
+
+<h2>Add a Comment</h2>
+<%= form_with(model: [ @project, Comment.new ], local: true) do |form| %>
+  <%= form.label :body %>
+  <%= form.text_area :body %>
+  <%= form.submit 'Submit' %>
+<% end %>
+
 
 <h2>Comments</h2>
-<%= render @project.comments %>
-
-<%= form_for @project, url: change_status_project_path(@project), method: :post do |f| %>
-  <div class="form-group">
-    <%= f.label :status %>
-  <%= f.select :status, options_for_select(Project::STATUS_OPTIONS, @project.status) %>
-  </div>
-
-  <%= f.submit "Update Status", class: "btn btn-primary" %>
+<% @project.comments.each do |comment| %>
+  <p><%= comment.body %></p>
 <% end %>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

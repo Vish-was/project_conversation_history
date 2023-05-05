@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  has_paper_trail only: [:status]
+
   has_many :comments, dependent: :destroy
 
   STATUS_OPTIONS = ['Not Started', 'In Progress', 'Completed']

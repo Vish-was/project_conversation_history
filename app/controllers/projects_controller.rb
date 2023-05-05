@@ -44,6 +44,12 @@ class ProjectsController < ApplicationController
     redirect_to @project, notice: 'Project status was successfully updated.'
   end
 
+  def history
+    @project = Project.find(params[:project_id])
+
+    @versions = @project.versions
+  end
+
   private
     def set_project
       @project = Project.find(params[:id])
